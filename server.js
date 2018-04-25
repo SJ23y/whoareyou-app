@@ -13,18 +13,18 @@ app.use(express.static('public'))
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + '/views/index.html')
+  response.end('Hello!!')
 })
 
 // Simple in-memory store
 
-app.get("/dreams", (request, response) => {
-  response.send(dreams)
-})
 
-
-app.get('/api/whoami', function(req, res) {
-    res.json(req);
+app.get('/api/whoami', function(req, res) { 
+    Object.keys(req).forEach(function(key) {
+      res.send(req[key]);
+    })
+  res.end();
+    
 })
 
 // listen for requests :)
