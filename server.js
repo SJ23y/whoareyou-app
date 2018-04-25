@@ -4,7 +4,7 @@
 // init project
 const express = require('express')
 const app = express()
-var useragent = require('express-useragent')
+
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -26,7 +26,7 @@ app.get('/api/whoami', function(req, res) {
    console.log(req.headers);
   var ip = req.headers['x-forwarded-for'].split(',')[0];
   var lang = req.headers['accept-language'].split(';')[0];
-  var soft = useragent()
+  var soft = req.headers['user-agent'].;
   res.json({'ip': ip, "language": lang, "software": soft})
     
 })
