@@ -20,7 +20,8 @@ app.get("/", (request, response) => {
 
 
 app.get('/api/whoami', function(req, res) { 
-   res.json({'client': req.client});
+   console.log(Object.keys(req));
+   console.log(req.h);
     
 })
 
