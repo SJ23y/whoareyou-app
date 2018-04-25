@@ -15,7 +15,7 @@ app.use(express.static('public'))
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
-  response.end('Hello!!')
+  response.end('Hello!! Try https://whoareyou-app.glitch.me/api/whoami')
 })
 
 // Simple in-memory store
