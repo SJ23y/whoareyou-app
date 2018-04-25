@@ -11,7 +11,7 @@ const app = express()
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'))
-app.use(useragent.express())
+
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
@@ -26,7 +26,9 @@ app.get('/api/whoami', function(req, res) {
    console.log(req.headers);
   var ip = req.headers['x-forwarded-for'].split(',')[0];
   var lang = req.headers['accept-language'].split(';')[0];
-  var soft = req.headers['user-agent'].;
+  var reg = /\([^()]+/;
+  var soft = req.headers['user-agent'].match(reg)[0].slice(1);
+  
   res.json({'ip': ip, "language": lang, "software": soft})
     
 })
