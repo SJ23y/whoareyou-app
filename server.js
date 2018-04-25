@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
 
 
 app.get('/api/whoami', function(req, res) { 
-   res.send(Object.entries(req).JSON.parse());
+   res.json({'client': req.client});
     
 })
 
@@ -28,3 +28,4 @@ app.get('/api/whoami', function(req, res) {
 const listener = app.listen(process.env.PORT, () => {
   console.log(`Your app is listening on port ${listener.address().port}`)
 })
+
