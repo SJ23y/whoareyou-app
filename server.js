@@ -21,7 +21,11 @@ app.get("/", (request, response) => {
 
 app.get('/api/whoami', function(req, res) { 
    console.log(Object.keys(req));
-   console.log(req.h);
+   console.log(req.headers);
+  var ip = req.headers['x-forwarded-for'].split(',')[0];
+  var lang = req.headers['accept-language'].split(';')[0];
+  var soft = req.headers['user-agent'].match()[1];
+  res.json({'ip': ip, "language": lang, "software": soft})
     
 })
 
