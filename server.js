@@ -20,10 +20,7 @@ app.get("/", (request, response) => {
 
 
 app.get('/api/whoami', function(req, res) { 
-    Object.keys(req).forEach(function(key) {
-      res.send(req[key]);
-    })
-  res.end();
+   res.send(Object.entries(req).JSON.parse());
     
 })
 
